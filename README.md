@@ -63,7 +63,7 @@ clean ibs_test
 
 ## <img width="4%" style="vertical-align:middle" title="Jenkins" src="media/logos/Jenkins.svg"> Сборка в Jenkins
 
-Для запуска сборки необходимо перейти в раздел <code>Build witn parameters</code> и нажать кнопку <code>Build</code>.
+Для запуска сборки необходимо перейти в раздел <code>Build with parameters</code> и нажать кнопку <code>Build</code>.
 <p align="center">
 <img title="Сборка в Jenkins" src="media/screencaps/Jenkins.png">
 </p>
