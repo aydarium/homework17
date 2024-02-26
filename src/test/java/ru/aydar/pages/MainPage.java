@@ -12,7 +12,6 @@ public class MainPage {
     private final SelenideElement
             searchButton = $(".js-header-search"),
             searchPopUp = $(".search"),
-            searchLastHeader = $(".search-last__header"),
             searchInput = $(".js-search-input"),
             burgerButton = $(".header-burger"),
             navigationSections = $(".navigation-sections"),
