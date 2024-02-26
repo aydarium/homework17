@@ -17,7 +17,11 @@ public class MainPageTest extends TestBase {
     String
             ruDescription = "Ключевой технологический партнер лидеров российского бизнеса",
             engDescription = "A key technology partner for Russian business leaders",
-            copyrightText = "© ООО «ИБС Экспертиза», 2024. Все права защищены";
+            copyrightText = "© ООО «ИБС Экспертиза», 2024. Все права защищены",
+            popularSearchHeaderName = "Популярные запросы",
+            lastSearchHeaderName = "Недавние запросы",
+            englishShort = "Eng",
+            russianShort = "Ru";
     List<String> sectionList = Arrays.asList("Решения и услуги", "Отраслевые решения", "Проекты", "Создано в IBS", "Карьера", "Медиацентр", "О компании");
 
     @Test
@@ -29,9 +33,9 @@ public class MainPageTest extends TestBase {
         mainPage
                 .openPage()
                 .checkTopSlideDescription(ruDescription)
-                .switchToEng()
+                .switchLang(englishShort)
                 .checkTopSlideDescription(engDescription)
-                .switchToRu()
+                .switchLang(russianShort)
                 .checkTopSlideDescription(ruDescription);
     }
 
@@ -45,8 +49,8 @@ public class MainPageTest extends TestBase {
                 .openPage()
                 .clickSearch()
                 .checkSearchPlaceholder()
-                .checkSearchPopularHeader()
-                .checkSearchLastHeader();
+                .checkSearchHeader(popularSearchHeaderName)
+                .checkSearchHeader(lastSearchHeaderName);
     }
 
     @Test

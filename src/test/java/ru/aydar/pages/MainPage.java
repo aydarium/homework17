@@ -11,15 +11,14 @@ import static com.codeborne.selenide.Selenide.open;
 public class MainPage {
     private final SelenideElement
             searchButton = $(".js-header-search"),
-            searchPopularHeader = $(".search-popular__header"),
+            searchPopUp = $(".search"),
             searchLastHeader = $(".search-last__header"),
             searchInput = $(".js-search-input"),
             burgerButton = $(".header-burger"),
             navigationSections = $(".navigation-sections"),
-            engButton = $(byText("Eng")),
-            ruButton = $(byText("Ru")),
             topSlideDescription = $(".top-slide__desc"),
-            footerCopyright = $(".footer-copy");
+            footerCopyright = $(".footer-copy"),
+            headerLinks = $(".header-links");
 
     @Step("Открываем главную страницу")
     public MainPage openPage()
@@ -49,19 +48,10 @@ public class MainPage {
         return this;
     }
 
-    @Step("Проверяем наличие заголовка 'Популярные запросы' в окне поиска по сайту")
-    public MainPage checkSearchPopularHeader()
+    @Step("Проверяем наличие заголовка '{value}' в окне поиска по сайту")
+    public MainPage checkSearchHeader(String value)
     {
-        searchPopularHeader.shouldBe(visible);
-        searchPopularHeader.shouldHave(text("Популярные запросы"));
-        return this;
-    }
-
-    @Step("Проверяем наличие заголовка 'Недавние запросы' в окне поиска по сайту")
-    public MainPage checkSearchLastHeader()
-    {
-        searchLastHeader.shouldBe(visible);
-        searchLastHeader.shouldHave(text("Недавние запросы"));
+        searchPopUp.shouldHave(text(value)).shouldBe(visible);
         return this;
     }
 
@@ -73,17 +63,10 @@ public class MainPage {
         return this;
     }
 
-    @Step("Нажимаем на кнопку смены языка сайта на английский")
-    public MainPage switchToEng()
+    @Step("Нажимаем на кнопку смены языка сайта '{value}'")
+    public MainPage switchLang(String value)
     {
-        engButton.click();
-        return this;
-    }
-
-    @Step("Нажимаем на кнопку смены языка сайта на русский")
-    public MainPage switchToRu()
-    {
-        ruButton.click();
+        headerLinks.$(byText(value)).click();
         return this;
     }
 
