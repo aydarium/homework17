@@ -2,6 +2,7 @@
 <p align="center">
 <a href="https://ibs.ru/"><img title="Логотип группы компаний IBS" src="media/logos/IBS.jpg"></a>
 </p>
+
 ## :scroll: Содержание:
 
 - [Используемый стек](#computer-используемый-стек)
@@ -107,7 +108,7 @@ clean ibs_test
 <img title="Тикет в Jira" src="media/screencaps/Jira.png">
 </p>
 
-### <img width="4%" style="vertical-align:middle" title="Telegram" src="media/logos/Telegram.svg"> Уведомления в Telegram с использованием бота
+## <img width="4%" style="vertical-align:middle" title="Telegram" src="media/logos/Telegram.svg"> Уведомления в Telegram с использованием бота
 
 После завершения сборки специальный бот, созданный в <code>Telegram</code>, получает из Jenkins и отправляет сообщение с отчётом о прогоне тестов.
 
@@ -115,7 +116,7 @@ clean ibs_test
 <img width="70%" title="Уведомление в Telegram" src="media/screencaps/Bot.png">
 </p>
 
-### <img width="4%" style="vertical-align:middle" title="Selenoid" src="media/logos/Selenoid.svg"> Видео примера запуска тестов в Selenoid
+## <img width="4%" style="vertical-align:middle" title="Selenoid" src="media/logos/Selenoid.svg"> Видео примера запуска тестов в Selenoid
 
 В отчетах Allure для каждого теста прикреплён не только скриншот, но и видео прохождения теста, записанное Selenoid.
 <p align="center">
