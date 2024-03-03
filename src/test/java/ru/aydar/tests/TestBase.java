@@ -23,24 +23,25 @@ public class TestBase {
         Configuration.browser = driverConfig.browser();
         Configuration.browserVersion = driverConfig.browserVersion();
         Configuration.browserSize = driverConfig.browserSize();
-        Configuration.remote = driverConfig.browserRemoteUrl();
         SelenideLogger.addListener("allure", new AllureSelenide());
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+        if (driverConfig.isRemote())
+        {
+            Configuration.remote = driverConfig.browserRemoteUrl();
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+            capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", true,
                 "enableVideo", true
-        ));
-        Configuration.browserCapabilities = capabilities;
+            ));
+            Configuration.browserCapabilities = capabilities;
+        }
     }
 
     @AfterEach
     void addAttachments() {
         Attach.screenshotAs("Финальный скриншот");
         Attach.pageSource();
-        if (!Objects.equals(Configuration.browser, "firefox")) {
-            Attach.browserConsoleLogs();
-        }
-        Attach.addVideo();
+        if (!Objects.equals(Configuration.browser, "firefox")) Attach.browserConsoleLogs();
+        if (Configuration.remote != null) Attach.addVideo();
         Selenide.closeWebDriver();
     }
 }
